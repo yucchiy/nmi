@@ -102,7 +102,6 @@ namespace nmi {
         }
 
         pr /= numElement;
-        // std::cerr << pr << std::endl;
         double h = 0.0;
         for (int i = 0; i < pr.rows; i++) {
             for (int j = 0; j < pr.cols; j++) {
@@ -116,14 +115,12 @@ namespace nmi {
     }
 
     static double MI(const std::vector<Cluster>& X, const std::vector<Cluster>& Y) {
-        // std::cerr << "MI(X, Y) = " << H(X) << " + " << H(Y) << " - " << H(X, Y) << std::endl;
         return H(X) + H(Y) - H(X, Y);
     }
 
     static double NMI(const std::vector<Cluster>& X, const std::vector<Cluster>& Y) {
         return 2.0 * MI(X, Y) / ( H(X) + H(Y) );
     }
-
 
 } // namespace nmi
 
